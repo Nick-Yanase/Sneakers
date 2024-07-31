@@ -10,7 +10,7 @@ export default function ProductInfo(props: ProductInfoProps) {
   const { name, description, price, discount, manufacturer } = props.product;
   const {quantity, adicionar, remover} = useCart(); //contexto para chamarmos as funções
   return (
-    <div className="w-1/2 space-y-10">
+    <div className="w-5/12 space-y-10">
       <p className="text-zinc-500 font-semibold tracking-widest text-lg uppercase">{manufacturer}</p>
       <h1 className="font-bold text-5xl text-zinc-900">{name}</h1 >
       <p className="text-zinc-500">{description}</p>
