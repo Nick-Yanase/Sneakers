@@ -5,7 +5,6 @@ import { useState } from "react";
 export interface ProductCardProps {
   product: Product
   abrirModal: () => void
-  fecharModal: ()=> void
   imagemAberta: number
   setImagemAberta: (imagemAberta: number) => void
 }
@@ -15,25 +14,24 @@ export default function ProductCard(props: ProductCardProps) {
   //pegando as props da interface e passar como varaiveis pra ser mais facil
   const { name, image } = props.product;
   const abrirModal = props.abrirModal;
-  const fecharModal = props.fecharModal;
   const imagemAberta = props.imagemAberta
   const setImagemAberta = props.setImagemAberta
 
   return (
     <div className="w-1/2">
-      <div className="flex flex-col gap-6 w-full cursor-pointer">
+      <div className="flex flex-col gap-6 w-full cursor-pointer items-center">
         <button 
           onClick={abrirModal}
-          className="relative size-[425px] rounded-lg overflow-hidden">
+          className="relative size-[450px] rounded-lg overflow-hidden">
           <div className="absolute inset-0 opacity-0 hover:opacity-30 bg-white transition-opacity ease-linear z-10"/>
           <Image
             src={`/img/${image[imagemAberta]}`}
             alt={name}
             fill
-            className="object-cover -z-10"
+            className="object-cover -z-10 "
           />
         </button>
-        <div className="flex justify-between w-[425px]">
+        <div className="flex justify-between w-[450px]">
           {image.map((imgSrc, index) => (
             <button
               key={index}

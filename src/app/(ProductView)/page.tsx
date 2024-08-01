@@ -31,12 +31,11 @@ export default function Home() {
   }
   return (
     <TemplatePage>
-      <section className="w-full mx-auto max-w-screen-xl px-24 flex items-center justify-center">
+      <section className="w-full mx-auto max-w-screen-xl gap-4 flex items-center justify-center">
         {products.map((produto) => (
           <ProductCard 
             imagemAberta={imagemAberta} 
             setImagemAberta={setImagemAberta}  
-            fecharModal={fecharModal} 
             abrirModal={abrirModal} 
             key={produto.id} 
             product={produto}

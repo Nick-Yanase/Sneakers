@@ -40,10 +40,10 @@ export default function ProductModal(props: ProductModalProps) {
           />
         </div>
         
-        <button onClick={setImagemAbertaBack} className="size-12 rounded-full bg-white flex items-center justify-center absolute -left-6 top-[290px]">
+        <button onClick={setImagemAbertaBack} className="size-12 rounded-full bg-white flex items-center justify-center absolute -left-6 top-[290px] hover:text-orange-500">
             <IconArrowLeft className="hover:text-orange-500 transition-all text-zinc-700 stroke-[2.5]"/>
         </button>
-        <button onClick={setImagemAbertaNext} className="size-12 rounded-full bg-white flex items-center justify-center absolute -right-6 top-[290px]">
+        <button onClick={setImagemAbertaNext} className="size-12 rounded-full bg-white flex items-center justify-center absolute -right-6 top-[290px] hover:text-orange-500">
             <IconArrowRight className="hover:text-orange-500 transition-all text-zinc-700 stroke-[2.5]"/>
         </button>
         <div className="w-[425px] flex justify-between mx-auto">
