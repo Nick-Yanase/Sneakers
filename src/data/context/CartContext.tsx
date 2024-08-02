@@ -5,24 +5,35 @@ import Product from "../model/Product";
 export interface CartContextProps {
   //essa interface é util para quando chamarmos o contexto, da pra saber quais são as propriedades do contexto
   itens: ItemCart[];
+  quantityProducts: number;
+  itemsQuantity: number;
+  previewModalAberto: boolean
   addQuantity: () => void;
   removeQuantity: () => void;
-  quantityProducts: number;
   addProduct: (item: Product, itemsQuantity: number) => void;
   removeProduct: (item: Product) => void;
   sendCart: (item: Product, itemsQuantity: number) => void;
-  itemsQuantity: number;
+  abrirModalPreview: () => void
+  fecharModalPreview: () => void
+  deleteProduct: (item: ItemCart) => void
 }
 
 const ContextoCarrinho = createContext<CartContextProps>({} as any);
 export function CartProvider(props: any) {
+  
+  
+  const [previewModalAberto, setPreviewModaAberto] = useState(false)
+
+  function abrirModalPreview(){
+    setPreviewModaAberto(true)
+  }
+  function fecharModalPreview(){
+    setPreviewModaAberto(false)
+  }
+   
   const [itens, setItens] = useState<ItemCart[]>([]); //Estamos especificando que itens é um array de itemCart
   const [itemsQuantity, setItemsQuantity] = useState(1);
-  /*
-  o que eu tenho que fazer:
-  1- função add ainda existe mas preciso criar uma função no botão add to cart que execute a função addProduct n vezes que o usuario quiser
-  2- tem que arrumar a opção de diminuir, pois ele esta fianco com numeros negativos
-  */
+
   function addQuantity(){
     setItemsQuantity(itemsQuantity+1)
   }
@@ -65,6 +76,10 @@ export function CartProvider(props: any) {
       setItens(newItens);
     }
   }
+  function deleteProduct(item: ItemCart){
+    const newItens = itens.filter((i) => i.product.id !== item.product.id)
+    setItens(newItens)
+  }
 
   function sendCart(product: Product, itensQuantity: number ) {
     addProduct(product, itensQuantity)
@@ -73,6 +88,7 @@ export function CartProvider(props: any) {
   return (
     <ContextoCarrinho.Provider //aqui temos que passar todas as propriedades estabelecidas na interface
       value={{
+        previewModalAberto,
         itens,
         itemsQuantity,
         addQuantity,
@@ -80,6 +96,9 @@ export function CartProvider(props: any) {
         addProduct,
         removeProduct,
         sendCart,
+        abrirModalPreview,
+        fecharModalPreview,
+        deleteProduct,
         get quantityProducts() {
           return itens.reduce((total, item) => total + item.quantity, 0); // total é = 0 e recebe item.quantity de cada item de itens
         },

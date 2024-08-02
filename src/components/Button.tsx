@@ -1,6 +1,7 @@
 export interface ButtonProps{
   children: React.ReactNode //esse botão tem um conteudo
-  onClick: () => void
+  className?: string
+  onClick?: () => void
 }
 export default function Button(props: ButtonProps){
   return(
