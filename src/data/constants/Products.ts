@@ -8,7 +8,7 @@ export const products: Product[] = [
     "price": 250,
     "image": ["image-product-1.jpg","image-product-2.jpg","image-product-3.jpg","image-product-4.jpg",],
     "manufacturer": "snaeaker company",
-    "discount": 0.50
+    "discount": 0.40
   }
 ]
 
