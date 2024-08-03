@@ -9,7 +9,7 @@ export default function MainPage(props: MainPageProps){
   return(
   <div className="flex flex-col">
     <Header/>
-    <main className={`mt-48 mb-44 w-full px-2 ${props.className ?? ``}`}>
+    <main className={`mt-48 mb-44 w-full px-2 flex flex-col items-center justify-center ${props.className ?? ``}`}>
       {props.children}
     </main>
     <Footer/>

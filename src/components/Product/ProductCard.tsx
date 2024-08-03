@@ -23,7 +23,7 @@ export default function ProductCard(props: ProductCardProps) {
         <button 
           onClick={abrirModal}
           className="relative size-[450px] rounded-lg overflow-hidden">
-          <div className="absolute inset-0 opacity-0 hover:opacity-30 bg-white transition-opacity ease-linear z-10"/>
+          <div className="absolute inset-0 opacity-0 hover:opacity-30 bg-white transition-opacity ease-linear z-20"/>
           <Image
             src={`/img/${image[imagemAberta]}`}
             alt={name}

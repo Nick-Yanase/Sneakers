@@ -7,9 +7,9 @@ import useCart from "@/data/hooks/useCart";
 import ProductCartPreview from "../Product/ProductCartPreview";
 
 export default function Header() {
-  const {quantityProducts, previewModalAberto, abrirModalPreview, fecharModalPreview, itens} = useCart()
+  const {quantityProducts, previewModalAberto, abrirModalPreview} = useCart()
   return (
-    <header className="w-full px-4 fixed z-10 bg-white">
+    <header className="w-full px-4 fixed z-50 bg-white">
       <nav className="w-full items-center max-w-screen-xl mx-auto flex gap-12 border-b-2 relative">
         <div className="mb-2">
           <Logo />

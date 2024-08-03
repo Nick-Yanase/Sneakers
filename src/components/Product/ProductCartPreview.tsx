@@ -9,7 +9,7 @@ export default function ProductCartPreview() {
     <div
       onMouseEnter={abrirModalPreview}
       onMouseLeave={fecharModalPreview}
-      className="w-[29%] flex flex-col gap-6 rounded-lg shadow-xl p-7 absolute -right-24 top-20 bg-white transition-all ease-in-out"
+      className="w-[28%] flex flex-col gap-6 rounded-lg shadow-xl p-7 absolute -right-16 top-20 bg-white transition-all ease-in-out"
     >
       <h3 className="text-sm font-extrabold text-zinc-900">Cart</h3>
       <div className="bg-zinc-300 w-full h-px " />

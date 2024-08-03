@@ -1,10 +1,10 @@
-import { IconBrandFacebook, IconBrandInstagram, IconBrandTiktok, IconBrandTwitter, IconBrandX, IconBrandYoutube } from "@tabler/icons-react";
+import { IconBrandFacebook, IconBrandGithub, IconBrandInstagram, IconBrandLinkedin, IconBrandTiktok, IconBrandTwitter, IconBrandX, IconBrandYoutube, IconHeartFilled } from "@tabler/icons-react";
 import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="w-full px-4">
-      <div className="w-full mx-auto max-w-screen-xl border-t  flex flex-wrap gap-8 justify-between">
+    <footer className="w-full flex-col flex px-4 border-t">
+      <div className="w-full mx-auto max-w-screen-xl px-2 flex flex-wrap gap-8 justify-between">
         <div className="space-y-5 mt-10 ">
           <h3 className="text-black font-medium">Explore</h3>
           <ul className="text-zinc-700 text-sm space-y-3">
@@ -21,18 +21,6 @@ export default function Footer() {
           <ul className="text-zinc-700 text-sm space-y-3">
             <li>
               <Link href="#">Support</Link>
-            </li>
-            <li>
-              <Link href="#">University</Link>
-            </li>
-            <li>
-              <Link href="#">Courses</Link>
-            </li>
-            <li>
-              <Link href="#">Blog</Link>
-            </li>
-            <li>
-              <Link href="#">Ebooks</Link>
             </li>
             <li>
               <Link href="#">Forum</Link>
@@ -106,6 +94,26 @@ export default function Footer() {
           </ul>
         </div>
       </div>
+
+      <div className="flex flex-wrap mt-7 border-t mx-auto items-center justify-between gap-2 text-zinc-700 text-sm py-8 max-w-screen-xl w-full">
+        
+        <div className="flex gap-2 items-center">
+          <span>Desenvolvido com </span>
+          <span> <IconHeartFilled className="text-red-600 size-4"/> </span>
+          <span>por Nicolas Yanase - {new Date().getFullYear()} </span>
+        </div>
+        <div className="flex flex-col gap-2">
+            <a href="https://www.linkedin.com/in/nicolas-yanase/" className="flex gap-2 items-center">
+              <IconBrandLinkedin />
+              <span>Nicolas Yanase</span>
+            </a>
+            <a href="https://github.com/Nick-Yanase" className="flex gap-2 items-center">
+              <IconBrandGithub />
+              <span>Nick-Yanase</span>
+            </a>
+        </div>
+      </div>
+
     </footer>
   );
 }
