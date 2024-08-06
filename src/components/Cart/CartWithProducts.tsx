@@ -10,7 +10,7 @@ export default function CartWithProducts() {
             <h3 className="font-bold text-2xl text-zinc-900 ">Sneakers cart</h3>
             <div className="flex gap-8">
               <div className="flex flex-1 rounded-xl justify-between items-start bg-white shadow-2xl h-96 p-8 gap-8">
-                {itens.map(item =>
+                {itens.map((item, index) =>
                   <div className="w-full flex items-start gap-8 justify-between">
                     <div className="flex justify-around items-center border-b-2 p-4 pt-2 gap-6 h-40 ">
                         <div className="flex gap-5">
@@ -19,7 +19,8 @@ export default function CartWithProducts() {
                               src={`/img/${item.product.image[0]}`}
                               alt={item.product.name}
                               fill
-                              className="object-cover"/>
+                              className="object-cover"
+                              key={index}/>
                           </div>
                           <div className="flex flex-col justify-between py-1 w-10/12">
                             <h3 className="text-zinc-600 font-semibold text-lg">{item.product.name}</h3>
