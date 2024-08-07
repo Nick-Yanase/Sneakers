@@ -14,7 +14,7 @@ export default function CartWithProducts() {
                   <div className="w-full flex items-start gap-8 justify-between">
                     <div className="flex justify-around items-center border-b-2 p-4 pt-2 gap-6 h-40 ">
                         <div className="flex gap-5">
-                          <div className="size-32 relative rounded-lg overflow-hidden ">
+                          <div key={item.product.id} className="size-32 relative rounded-lg overflow-hidden ">
                             <Image
                               src={`/img/${item.product.image[0]}`}
                               alt={item.product.name}

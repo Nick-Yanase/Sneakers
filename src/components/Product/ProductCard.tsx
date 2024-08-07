@@ -28,7 +28,7 @@ export default function ProductCard(props: ProductCardProps) {
             src={`/img/${image[imagemAberta]}`}
             alt={name}
             fill
-            className="object-cover -z-10 "
+            className="object-cover -z-10 aspect-square"
           />
         </button>
         <div className="flex justify-between w-[450px]">
