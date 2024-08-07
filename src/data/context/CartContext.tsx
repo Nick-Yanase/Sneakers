@@ -45,7 +45,6 @@ export function CartProvider(props: any) {
     const indiceProduct = itens.findIndex(
       (item) => item.product.id === product.id
     );
-
     //se não encontrar os produto adicionado
     if (indiceProduct === -1) {
       const itensFilter = itens.filter(

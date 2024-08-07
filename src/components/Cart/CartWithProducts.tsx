@@ -32,7 +32,7 @@ export default function CartWithProducts() {
                           <IconTrash className="text-zinc-400 transition-all hover:text-red-500" />
                         </button>
                         <div className="flex w-28 px-2 bg-zinc-200 justify-between rounded-lg relative">
-                          <button onClick={() => removeProduct(item.product)} className="">
+                          <button onClick={() => item.quantity == 1 ? deleteProduct(item) : removeProduct(item.product)} > {/*se qaundo ele clicar no botão de menos a quantidade for == 1, então ele deleta o produto, senão ele diminui 1*/}
                             <IconMinus className="size-5 text-orange-500 stroke-2 "/>
                           </button>
                           <span className="text-black font-bold mx-auto">{item.quantity}</span>
