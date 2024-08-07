@@ -11,10 +11,10 @@ export default function CartWithProducts() {
             <div className="flex gap-8">
               <div className="flex flex-1 rounded-xl justify-between items-start bg-white shadow-2xl h-96 p-8 gap-8">
                 {itens.map((item, index) =>
-                  <div className="w-full flex items-start gap-8 justify-between">
+                  <div key={index} className="w-full flex items-start gap-8 justify-between">
                     <div className="flex justify-around items-center border-b-2 p-4 pt-2 gap-6 h-40 ">
                         <div className="flex gap-5">
-                          <div key={index} className="size-32 relative rounded-lg overflow-hidden ">
+                          <div className="size-32 relative rounded-lg overflow-hidden ">
                             <Image
                               src={`/img/${item.product.image[0]}`}
                               alt={item.product.name}
