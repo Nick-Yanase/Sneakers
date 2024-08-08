@@ -7,6 +7,8 @@ import { products } from "@/data/constants/Products";
 import { useState } from "react";
 
 export default function Home() {
+  
+  const [mobile, setMobile] = useState(false)
   const [modalAberto, setModalAberto] = useState(false);
 
   function abrirModal() {
