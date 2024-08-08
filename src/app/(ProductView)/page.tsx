@@ -4,6 +4,8 @@ import ProductCard from "@/components/Product/ProductCard";
 import ProductInfo from "@/components/Product/ProductInfo";
 import ProductModal from "@/components/Product/ProductModal";
 import { products } from "@/data/constants/Products";
+import Product from "@/data/model/Product";
+import Image from "next/image";
 import { useState } from "react";
 
 export default function Home() {
@@ -31,19 +33,36 @@ export default function Home() {
       setImagemAberta(imagemAberta-1)
     }
   }
+
   return (
     <TemplatePage>
-      <section className="w-full mx-auto max-w-screen-xl gap-4 flex items-center justify-center">
-        {products.map((produto) => (
-          <ProductCard 
-            imagemAberta={imagemAberta} 
-            setImagemAberta={setImagemAberta}  
-            abrirModal={abrirModal} 
-            key={produto.id} 
-            product={produto}
-          />
+      <section className="w-full mx-auto max-w-screen-xl gap-4 flex flex-col md:flex-row  items-center justify-center">
+        
+        {products.map((produto) => 
+        (
+          <>
+          <div className="w-full h-44 relative">
+            <div className="absolute inset-0">
+              <Image
+                src={`/img/${produto.image[imagemAberta]}`}
+                alt={produto.name}
+                fill
+                className="object-cover"
+              />
+            </div>
+          </div>
+            <ProductCard 
+              imagemAberta={imagemAberta} 
+              setImagemAberta={setImagemAberta}  
+              abrirModal={abrirModal} 
+              key={produto.id} 
+              product={produto}
+            />
+          </>
           // o componente precisa usar este estado para poder fazer o modal abrir e fechar
-        ))}
+        )
+        
+        )}
 
         {products.map((produto) => (
           <ProductInfo 
