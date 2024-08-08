@@ -26,7 +26,7 @@ export default function ProductModal(props: ProductModalProps) {
       <div className=" flex flex-col gap-4 relative">
 
         <div className="flex justify-end">
-          <button onClick={fecharModal}>
+          <button onClick={fecharModal} classname="text-white">
             <IconX className="text-white hover:text-orange-500 transition-all stroke-[3]" />
           </button>
         </div>
