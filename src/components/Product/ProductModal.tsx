@@ -27,7 +27,7 @@ export default function ProductModal(props: ProductModalProps) {
 
         <div className="flex justify-end">
           <button onClick={fecharModal}>
-            <IconX className="hover:text-orange-500 transition-all stroke-[3]" />
+            <IconX className="text-white hover:text-orange-500 transition-all stroke-[3]" />
           </button>
         </div>
 
