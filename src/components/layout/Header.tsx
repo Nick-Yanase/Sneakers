@@ -9,6 +9,7 @@ import { useState, useEffect, useRef } from "react";
 
 export default function Header() {
   const { quantityProducts, previewModalAberto, abrirModalPreview } = useCart();
+  const [backgroundMenu, setBackgroundMenu] = useState(0)
   const [menuMobile, setMenuMobile] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
 
@@ -38,8 +39,8 @@ export default function Header() {
   }, [menuMobile]);
 
   return (
-    <header className="w-full px-4 fixed z-50 bg-white">
-      <nav className="w-full items-center max-w-screen-xl mx-auto py-4 flex gap-4 md:gap-12 md:border-b-2 relative">
+    <header className="w-full px-4 fixed z-50 bg-white shadow-lg">
+      <nav className="w-full items-center max-w-screen-xl mx-auto pt-3 flex gap-4 md:gap-12 md:border-b-2 relative py-4 md:py-0 ">
         <button onClick={mobileOn} className="md:hidden mb-1">
           <IconMenu2 className="text-zinc-600"/>
         </button>

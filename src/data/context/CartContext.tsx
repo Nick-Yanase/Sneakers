@@ -16,6 +16,8 @@ export interface CartContextProps {
   abrirModalPreview: () => void
   fecharModalPreview: () => void
   deleteProduct: (item: ItemCart) => void
+  abrirModalPreviewTouch: () => void
+  fecharModalPreviewTouch: () => void
 }
 
 const ContextoCarrinho = createContext<CartContextProps>({} as any);
@@ -23,6 +25,13 @@ export function CartProvider(props: any) {
   
   
   const [previewModalAberto, setPreviewModaAberto] = useState(false)
+  
+  function abrirModalPreviewTouch(){
+    setPreviewModaAberto(true)
+  }
+  function fecharModalPreviewTouch(){
+    setPreviewModaAberto(false)
+  }
 
   function abrirModalPreview(){
     setPreviewModaAberto(true)
@@ -98,6 +107,8 @@ export function CartProvider(props: any) {
         abrirModalPreview,
         fecharModalPreview,
         deleteProduct,
+        abrirModalPreviewTouch,
+        fecharModalPreviewTouch,
         get quantityProducts() {
           return itens.reduce((total, item) => total + item.quantity, 0); // total é = 0 e recebe item.quantity de cada item de itens
         },

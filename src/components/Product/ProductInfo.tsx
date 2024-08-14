@@ -11,7 +11,7 @@ export default function ProductInfo(props: ProductInfoProps) {
   const { name, description, price, discount, manufacturer } = props.product; //props.product conseguimos obter o produto atual
   const {sendCart, itemsQuantity} = useCart(); //contexto para chamarmos as funções
   return (
-    <div className="w-5/12 flex justify-start">
+    <div className="w-full md:w-5/12 flex justify-center md:justify-start">
       <div className=" w-10/12 space-y-10">
         <p className="text-zinc-500 font-semibold tracking-widest text-lg uppercase">{manufacturer}</p>
         <h1 className="font-bold text-5xl text-zinc-900">{name}</h1 >
@@ -25,7 +25,7 @@ export default function ProductInfo(props: ProductInfoProps) {
           </div>
           <span className="text-zinc-600 font-bold line-through">${price.toFixed(2)}</span>
         </div>
-        <div className="flex gap-4">
+        <div className="flex flex-col md:flex:row gap-4">
           <ProductMinusPlus />
           <Button onClick={() => sendCart(props.product, itemsQuantity)}>
               <IconShoppingCart className="text-black size-6 stroke-[1.4]" />

@@ -33,7 +33,7 @@ export default function Home() {
   }
   return (
     <TemplatePage>
-      <section className="w-full mx-auto max-w-screen-xl gap-4 flex items-center justify-center">
+      <section className="w-full mx-auto md:max-w-screen-xl gap-4 flex flex-col md:flex-row items-center justify-center">
         {products.map((produto) => (
           <ProductCard 
             imagemAberta={imagemAberta} 
@@ -41,6 +41,8 @@ export default function Home() {
             abrirModal={abrirModal} 
             key={produto.id} 
             product={produto}
+            setImagemAbertaBack={setImagemAbertaBack}
+            setImagemAbertaNext={setImagemAbertaNext}
           />
           // o componente precisa usar este estado para poder fazer o modal abrir e fechar
         ))}

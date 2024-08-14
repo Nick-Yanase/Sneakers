@@ -1,4 +1,6 @@
+1- responsividade
 
-4- responsividade
+### MOBILE ###
+2 - quando a pessoa segurar o dedo no carrinho mostrara as compras
 
-5- separar a page cart em components
+3 - animações no menu quando abrir
