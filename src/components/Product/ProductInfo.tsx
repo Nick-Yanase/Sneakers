@@ -21,7 +21,7 @@ export default function ProductInfo(props: ProductInfoProps) {
             <span className="font-bold text-zinc-900 text-3xl">
               ${(price - (price * discount)).toFixed(2)}
             </span>
-            <span className="bg-zinc-900 font-semibold text-sm py-1 px-2.5 rounded-lg">%{(discount * 100).toFixed(0)}</span>
+            <span className="text-white bg-zinc-900 font-semibold text-sm py-1 px-2.5 rounded-lg">%{(discount * 100).toFixed(0)}</span>
           </div>
           <span className="text-zinc-600 font-bold line-through">${price.toFixed(2)}</span>
         </div>
