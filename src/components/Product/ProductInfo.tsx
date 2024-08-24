@@ -25,7 +25,7 @@ export default function ProductInfo(props: ProductInfoProps) {
           </div>
           <span className="text-zinc-600 font-bold line-through">${price.toFixed(2)}</span>
         </div>
-        <div className="flex flex-col md:flex:row gap-4">
+        <div className="flex flex-col md:flex-row gap-4">
           <ProductMinusPlus />
           <Button onClick={() => sendCart(props.product, itemsQuantity)}>
               <IconShoppingCart className="text-black size-6 stroke-[1.4]" />

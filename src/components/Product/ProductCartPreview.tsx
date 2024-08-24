@@ -7,10 +7,10 @@ export default function ProductCartPreview() {
   const { itens, abrirModalPreview, fecharModalPreview, deleteProduct, fecharModalPreviewTouch, abrirModalPreviewTouch } = useCart();
   return (
     <>
-    <div
+    {/* <div
       onTouchStart={abrirModalPreviewTouch}
       onTouchEnd={fecharModalPreviewTouch}
-      className="md:hidden w-full h-72 flex flex-col gap-6 rounded-lg shadow-xl p-7 absolute top-24 left-1/2 transform -translate-x-1/2 bg-white transition-all ease-in-out"
+      className="md:hidden w-full h-72 flex flex-col gap-6 rounded-lg shadow-xl p-7 absolute top-24 left-1/2 transform -translate-x-1/2 bg-white transition-all ease-in-out "
     >
       <h3 className="text-sm font-extrabold text-zinc-900">Cart</h3>
       <div className="bg-zinc-300 w-full h-px " />
@@ -56,12 +56,12 @@ export default function ProductCartPreview() {
           <p className="text-zinc-500 font-bold">Your cart is empty</p>
         </div>
       )}
-    </div>
+    </div> */}
     {/* modal para telas md pra cima */}
     <div
       onMouseEnter={abrirModalPreview}
       onMouseLeave={fecharModalPreview}
-      className="hidden w-[28%] md:flex flex-col gap-6 rounded-lg shadow-xl p-7 absolute -right-16 top-20 bg-white transition-all ease-in-out"
+      className="hidden w-[28%] lg:flex flex-col gap-6 rounded-lg shadow-xl p-7 absolute -right-[0%] top-20 bg-white transition-all ease-in-out"
     >
       <h3 className="text-sm font-extrabold text-zinc-900">Cart</h3>
       <div className="bg-zinc-300 w-full h-px " />

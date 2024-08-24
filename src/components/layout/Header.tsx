@@ -9,7 +9,6 @@ import { useState, useEffect, useRef } from "react";
 
 export default function Header() {
   const { quantityProducts, previewModalAberto, abrirModalPreview } = useCart();
-  const [backgroundMenu, setBackgroundMenu] = useState(0)
   const [menuMobile, setMenuMobile] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
 
@@ -39,7 +38,7 @@ export default function Header() {
   }, [menuMobile]);
 
   return (
-    <header className="w-full px-4 fixed z-50 bg-white shadow-lg">
+    <header className="w-full px-4 fixed z-50 bg-white shadow-lg md:shadow-none">
       <nav className="w-full items-center max-w-screen-xl mx-auto pt-3 flex gap-4 md:gap-12 md:border-b-2 relative py-4 md:py-0 ">
         <button onClick={mobileOn} className="md:hidden mb-1">
           <IconMenu2 className="text-zinc-600"/>
@@ -47,9 +46,9 @@ export default function Header() {
         {
           menuMobile && (
             <div className="fixed inset-0 bg-black/70 flex items-center justify-start z-40">
-              <div ref={menuRef} className="transition-all ease-linear md:hidden space-y-5 w-8/12 bg-white h-screen z-50 p-6">
+              <nav ref={menuRef} className="transition-all ease-linear md:hidden space-y-5 w-8/12 bg-white h-screen z-50 px-6 py-7">
                 <button onClick={mobileOff}>
-                  <IconX className="text-zinc-600 hover:text-red-500 transition-all "/>
+                  <IconX className="text-zinc-600 hover:text-orange-500 transition-all "/>
                 </button>
                 <ul className="flex flex-col gap-6 font-bold text-zinc-900">
                   <li className="">
@@ -68,7 +67,7 @@ export default function Header() {
                     <Link href="#">Contact</Link>
                   </li>
                 </ul>
-              </div>
+              </nav>
             </div>
           )
         }
