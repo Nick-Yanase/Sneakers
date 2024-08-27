@@ -11,7 +11,7 @@ export default function ProductInfo(props: ProductInfoProps) {
   const { name, description, price, discount, manufacturer } = props.product; //props.product conseguimos obter o produto atual
   const {sendCart, itemsQuantity} = useCart(); //contexto para chamarmos as funções
   return (
-    <div className="w-full md:w-5/12 flex justify-center md:justify-start">
+    <div className="w-full md:w-5/12 flex justify-center md:justify-start ">
       <div className=" w-10/12 space-y-10">
         <p className="text-zinc-500 font-semibold tracking-widest text-lg uppercase">{manufacturer}</p>
         <h1 className="font-bold text-5xl text-zinc-900">{name}</h1 >

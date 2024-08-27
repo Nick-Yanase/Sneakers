@@ -20,23 +20,6 @@ export default function Header() {
     setMenuMobile(false);
   }
 
-  const handleClickOutside = (event: MouseEvent) => {
-    if (menuRef.current && event.target instanceof Node && !menuRef.current.contains(event.target)) {
-      mobileOff();
-    }
-  };
-
-  useEffect(() => {
-    if (menuMobile) {
-      document.addEventListener('mousedown', handleClickOutside);
-    } else {
-      document.removeEventListener('mousedown', handleClickOutside);
-    }
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [menuMobile]);
-
   return (
     <header className="w-full px-4 fixed z-50 bg-white shadow-lg md:shadow-none">
       <nav className="w-full items-center max-w-screen-xl mx-auto pt-3 flex gap-4 md:gap-12 md:border-b-2 relative py-4 md:py-0 ">
@@ -45,8 +28,8 @@ export default function Header() {
         </button>
         {
           menuMobile && (
-            <div className="fixed inset-0 bg-black/70 flex items-center justify-start z-40">
-              <nav ref={menuRef} className="transition-all ease-linear md:hidden space-y-5 w-8/12 bg-white h-screen z-50 px-6 py-7">
+            <div onClick={mobileOff} className="fixed inset-0 bg-black/70 flex items-center justify-start z-40">
+              <nav className="transition-all ease-linear md:hidden space-y-5 w-8/12 bg-white h-screen z-50 px-6 py-10">
                 <button onClick={mobileOff}>
                   <IconX className="text-zinc-600 hover:text-orange-500 transition-all "/>
                 </button>

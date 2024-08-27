@@ -1,6 +1,7 @@
 import Product from "@/data/model/Product";
 import { IconArrowAutofitLeft, IconArrowLeft, IconArrowLeftBar, IconArrowLeftFromArc, IconArrowLeftRhombus, IconArrowLeftSquare, IconArrowRight, IconX } from "@tabler/icons-react";
 import Image from "next/image";
+import { useEffect, useRef } from "react";
 
 export interface ProductModalProps {
   product: Product;
@@ -11,7 +12,6 @@ export interface ProductModalProps {
   setImagemAberta: (imagemAberta: number) => void;
   setImagemAbertaNext: () => void;
   setImagemAbertaBack: () => void;
-
 }
 export default function ProductModal(props: ProductModalProps) {
   const fecharModal = props.fecharModal;
@@ -22,7 +22,9 @@ export default function ProductModal(props: ProductModalProps) {
   const setImagemAbertaBack = props.setImagemAbertaBack;
 
   return (
-    <div className="fixed inset-0 bg-black/70 flex justify-center items-center z-50 ">
+    <div 
+    onClick={fecharModal} //se clicar fora fecha o modal
+    className="fixed inset-0 bg-black/70 flex justify-center items-center z-50 ">
       <div className=" flex flex-col gap-4 relative">
 
         <div className="flex justify-end">

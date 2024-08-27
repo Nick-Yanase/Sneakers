@@ -4,13 +4,10 @@ import ProductCard from "@/components/Product/ProductCard";
 import ProductInfo from "@/components/Product/ProductInfo";
 import ProductModal from "@/components/Product/ProductModal";
 import { products } from "@/data/constants/Products";
-import Product from "@/data/model/Product";
-import Image from "next/image";
 import { useState } from "react";
 
 export default function Home() {
   
-  const [mobile, setMobile] = useState(false)
   const [modalAberto, setModalAberto] = useState(false);
 
   function abrirModal() {
@@ -34,6 +31,8 @@ export default function Home() {
     }
   }
 
+ 
+  
   return (
     <TemplatePage>
       <section className="w-full mx-auto md:max-w-screen-xl gap-4 flex flex-col md:flex-row items-center justify-center">

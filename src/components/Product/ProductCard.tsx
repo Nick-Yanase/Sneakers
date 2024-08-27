@@ -22,8 +22,32 @@ export default function ProductCard(props: ProductCardProps) {
   const setImagemAbertaNext = props.setImagemAbertaNext;
   const setImagemAbertaBack = props.setImagemAbertaBack;
 
+  const [touchStartX, setTouchStartX] = useState(0);
+  const [touchEndX, setTouchEndX] = useState(0);
+
+  const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
+    setTouchStartX(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
+    setTouchEndX(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStartX - touchEndX > 50) {
+      // Se o movimento foi para a esquerda, muda a imagem
+      setImagemAbertaNext;
+    } else if (touchEndX - touchStartX > 50) {
+      // Se o movimento foi para a direita, muda a imagem
+      setImagemAbertaBack;
+    }
+  };
   return (
-    <div className="w-full md:w-1/2">
+    <div 
+    onTouchStart={handleTouchStart}
+    onTouchMove={handleTouchMove}
+    onTouchEnd={handleTouchEnd} 
+    className="w-full md:w-1/2">
       <div className="relative w-full h-96 md:hidden">
         <Image 
           src={`/img/${image[imagemAberta]}`} 
@@ -37,6 +61,16 @@ export default function ProductCard(props: ProductCardProps) {
         <button onClick={setImagemAbertaNext} className="size-10 rounded-full bg-white flex items-center justify-center absolute right-3 top-[192px] hover:text-orange-500">
               <IconArrowRight className="hover:text-orange-500 transition-all text-zinc-700 stroke-[2.5]"/>
         </button>
+      </div>
+
+      <div className="mx-auto w-1/2 md:hidden flex justify-center items-center gap-4 py-4">
+        {image.map((_, index) => (
+          <div 
+          key={index}
+          className={`rounded-full ${imagemAberta === index ? "bg-orange-500 size-4" : "bg-zinc-400 size-3" }`}>
+
+          </div>
+        ))}
       </div>
       <div className="hidden md:flex flex-col gap-6 w-full cursor-pointer items-center">
         <button 
