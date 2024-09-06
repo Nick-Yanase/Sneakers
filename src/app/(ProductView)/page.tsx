@@ -5,7 +5,7 @@ import ProductInfo from "@/components/Product/ProductInfo";
 import ProductModal from "@/components/Product/ProductModal";
 import { products } from "@/data/constants/Products";
 import { useState } from "react";
-
+import "../../../public/css/swiper.css"
 export default function Home() {
   
   const [modalAberto, setModalAberto] = useState(false);
@@ -30,8 +30,6 @@ export default function Home() {
       setImagemAberta(imagemAberta-1)
     }
   }
-
- 
   
   return (
     <TemplatePage>

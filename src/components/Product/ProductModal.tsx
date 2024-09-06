@@ -21,6 +21,11 @@ export default function ProductModal(props: ProductModalProps) {
   const setImagemAbertaNext = props.setImagemAbertaNext;
   const setImagemAbertaBack = props.setImagemAbertaBack;
 
+  // Função para impedir o fechamento do modal ao clicar dentro dele
+  const handleClickInside = (e: React.MouseEvent<HTMLDivElement>) => {
+    e.stopPropagation(); // Impede a propagação do clique para o elemento pai
+  };
+
   return (
     <div 
     onClick={fecharModal} //se clicar fora fecha o modal
@@ -33,7 +38,9 @@ export default function ProductModal(props: ProductModalProps) {
           </button>
         </div>
 
-        <div className="relative size-[550px] rounded-lg overflow-hidden">
+        <div 
+        onClick={handleClickInside}
+        className="relative size-[450px] xl:size-[550px] rounded-lg overflow-hidden ">
           <Image
             src={`/img/${image[imagemAberta]}`}
             alt={name}
@@ -42,13 +49,25 @@ export default function ProductModal(props: ProductModalProps) {
           />
         </div>
         
-        <button onClick={setImagemAbertaBack} className="size-12 rounded-full bg-white flex items-center justify-center absolute -left-6 top-[290px] hover:text-orange-500">
-            <IconArrowLeft className="hover:text-orange-500 transition-all text-zinc-700 stroke-[2.5]"/>
+        <button onClick={(e) => {
+          e.stopPropagation(); // Impede a propagação do clique
+          setImagemAbertaBack();
+          }}
+          className="size-12 rounded-full bg-white flex items-center justify-center absolute -left-6 top-[290px] hover:text-orange-500 ">
+            <IconArrowLeft className="hover:text-orange-500 transition-all text-zinc-700 stroke-[2.5] z-[90]"/>
         </button>
-        <button onClick={setImagemAbertaNext} className="size-12 rounded-full bg-white flex items-center justify-center absolute -right-6 top-[290px] hover:text-orange-500">
+        <button onClick={(e) => {
+          e.stopPropagation(); // Impede a propagação do clique
+          setImagemAbertaNext();
+          }}  
+          className="size-12 rounded-full bg-white flex items-center justify-center absolute -right-6 top-[290px] hover:text-orange-500 ">
             <IconArrowRight className="hover:text-orange-500 transition-all text-zinc-700 stroke-[2.5]"/>
         </button>
-        <div className="w-[425px] flex justify-between mx-auto">
+        
+        <div 
+        className="w-[425px] flex justify-between mx-auto "
+        onClick={ handleClickInside } 
+        >
         {image.map((imgSrc, index) => (
             <button
               key={index}
